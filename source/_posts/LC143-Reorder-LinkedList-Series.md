@@ -5,7 +5,6 @@ categories:
   - [Leetcode]
 tags:
   - LinkedList
-  - Recursion
 ---
 
 ### Previously

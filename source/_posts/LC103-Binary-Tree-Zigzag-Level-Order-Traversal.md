@@ -6,7 +6,6 @@ categories:
 tags:
   - Binary Tree
   - Queue
-  - Deque
 ---
 
 ### Previously
