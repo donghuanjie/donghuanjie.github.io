@@ -1,6 +1,6 @@
 ---
 title: 'LC143: Reorder LinkedList'
-date: 2024-03-06 12:16:07
+date: 2023-07-06 12:16:07
 categories:
   - [Leetcode]
 tags:

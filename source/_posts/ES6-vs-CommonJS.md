@@ -1,6 +1,6 @@
 ---
 title: ES6 vs CommonJS
-date: 2024-04-19 14:01:59
+date: 2023-06-19 14:01:59
 categories:
   - [Web Development]
 tags:
@@ -9,46 +9,76 @@ tags:
 
 ### Syntax and Module Loading
 
-- CommonJS modules are **synchronously** loaded, meaning that the module files are loaded and parsed during the runtime as the code executes. This approach is well-suited for ***server-side*** environments where files are typically locally available and can be loaded quickly.
+CommonJS modules are **synchronously** loaded, meaning that the module files are loaded and parsed during the runtime as the code executes. This approach is well-suited for ***server-side*** environments where files are typically locally available and can be loaded quickly.
 
-```javascript
-const moduleA = require('moduleA');
-module.exports = function() {
-  // some functionality
-};
-```
+ES6 modules are designed to support **asynchronous** loading, allowing modules to be loaded over the network. This feature is advantageous in ***browser environments***, enabling scripts to be loaded in parallel while the page loads.
+
+{% tabs First unique name %}
+<!-- tab CommonJS -->
 
 In CommonJS, the server should load the module in order and then execute. Since files are stored locally on the server, the process won't take long usually.
 
 ```javascript
-// server.js
-const userModule = require('./user');  // 加载用户模块
-const dbModule = require('./database'); // 加载数据库模块
-
-userModule.createUser();
-dbModule.connect();
+// export module
+module.exports = {
+    add: function(a, b) {
+        return a + b;
+    },
+    subtract: function(a, b) {
+        return a - b;
+    }
+};
 ```
-
-- ES6 modules are designed to support **asynchronous** loading, allowing modules to be loaded over the network. This feature is advantageous in ***browser environments***, enabling scripts to be loaded in parallel while the page loads.
 
 ```javascript
-import moduleA from 'moduleA';
-export function someFunction() {
-  // some functionality
-};
-export default someFunction;
+// import module
+const math = require('./math');
+console.log(math.add(1, 2));  // output: 3
 ```
+<!-- endtab -->
+
+<!-- tab ES6 -->
 
 Imagine you are browsing a webpage with complex frontend, ES6 enables asynchronous loading, which means before some slow modules being loaded thorouly, you can see and interact with modules that are already loaded.
 
 ```javascript
-// app.js
-import { fetchUserData } from './user.js';  // 异步加载用户模块
-import { connectToDb } from './database.js'; // 异步加载数据库模块
+import moduleA from 'moduleA';
+// default export
+export function add(a, b) {
+    return a + b;
+}
 
-fetchUserData();
-connectToDb();
+export function subtract(a, b) {
+    return a - b;
+}
+
+export default class Math {
+    constructor() {}
+    multiply(a, b) {
+        return a * b;
+    }
+}
 ```
+
+```javascript
+// app.js
+// import modules
+import { add, subtract } from './math';
+console.log(add(3, 2));  // output: 5
+
+// import all
+import * as math from './math';
+console.log(math.subtract(5, 2));  // output: 3
+
+// import default
+import Math from './math';
+const mathInstance = new Math();
+console.log(mathInstance.multiply(3, 2));  // output: 6
+```
+<!-- endtab -->
+
+{% endtabs %}
+
 
 ### Design Philosophy
 
