@@ -11,11 +11,11 @@ tags:
 
 [Seven Bridges of Königsberg](https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg) is a graph problem solved by Euler. There are 7 bridges connecting 2 islands with mainland. The question is, is it possible to cross all the bridges exactly one time?
 
-{% img [class names] /images/graph/Konigsberg_bridges.png 400 300 '"Seven Bridges of Königsberg" "alt"' %}
+{% img /images/graph/Konigsberg_bridges.png 400 300 "Seven Bridges of Königsberg" "alt"' %}
 
 It turns out that the problem can be generalized into a graph problem if we consider each land as a vertex and each bridge as an edge, what we want to do is to finish a "one line draw" to traverse all edges exactly once and pass all vertices (can pass vertices more than one time):
 
-{% img [aa] /images/graph/Konigsberg_graph.png 250 200 '"Seven Bridges graph" "alt"' %}
+{% img /images/graph/Konigsberg_graph.png 250 200 '"Seven Bridges graph" "alt"' %}
 
 ### Concepts
 
