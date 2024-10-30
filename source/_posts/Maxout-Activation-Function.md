@@ -1,6 +1,7 @@
 ---
 title: Maxout Activation Function
 date: 2024-02-06 23:30:37
+mathjax: true
 categories:
   - [Machine Learning]
   - [Deep Learning]
