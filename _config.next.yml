@@ -364,11 +364,13 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: vs2015
-  prism:
-    light: prism
-    dark: prism-dark
+    light: github   # 浅色模式下的主题
+    dark: monokai   # 深色模式下的主题
+
+  # prism:
+  #   light: prism
+  #   dark: prism-dark
+  
   # Add copy button on codeblock
   copy_button:
     enable: true
